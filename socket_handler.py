@@ -4,7 +4,6 @@ import configs
 
 class ClientSocketHandler:
     def __init__(self, host, port) -> None:
-        # Trigger
         self.host = host
         self.port = port
         self.socket_instance : socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
