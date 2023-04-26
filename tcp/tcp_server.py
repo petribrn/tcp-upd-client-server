@@ -1,6 +1,5 @@
-from socket_handler import ServerSocketHandler
+from tcp_socket_handler import TcpServerSocketHandler
 import configs
-
 
 """
         server_method
@@ -9,13 +8,15 @@ import configs
         answer it sending another one back.
         Keeps this behavior for every message sent by client.
 """
+
+
 def server_method():
     print('<-----DEFINE HOST ADDRESS/PORT----->')
     host_port = input(f'Host/IP Port [Default: {configs.default_server_host} {configs.default_server_port}]: ')
     host = host_port.split(' ')[0] if host_port else ''
-    port = host_port.split(' ')[1] if host_port else ''
+    port = host_port.split(' ')[1] if host_port else 0
 
-    server_handler = ServerSocketHandler(host, port)
+    server_handler = TcpServerSocketHandler(host, port)
     connection, address = server_handler.connect_server()
 
     message_counter = 0
@@ -29,6 +30,7 @@ def server_method():
         message_counter += 1
 
     connection.close()
+    server_handler.close_socket()
 
 
 if __name__ == '__main__':

@@ -2,11 +2,13 @@ import socket
 import configs
 
 
-class ClientSocketHandler:
+class TcpClientSocketHandler:
     def __init__(self, host, port) -> None:
         self.host = host
         self.port = port
-        self.socket_instance : socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        # STREAM constant for TCP connections
+        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     @property
     def socket_instance(self):
@@ -56,19 +58,22 @@ class ClientSocketHandler:
         """        
         print(f'Server reply......: {response}')
 
-    def close_connection(self):
+    def close_socket(self):
         """
-        close_connection 
+        close_socket
 
-        Closes client socket connection to server
+        Closes client TCP socket
         """        
         self.socket_instance.close()
 
-class ServerSocketHandler:
+
+class TcpServerSocketHandler:
     def __init__(self, host: str, port: int) -> None:
         self.host = configs.default_server_host if not host else host
         self.port = configs.default_server_port if not port else port
-        self.socket_instance : socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        # STREAM constant for TCP connections
+        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         print('<<< Socket created >>>')
 
@@ -88,11 +93,11 @@ class ServerSocketHandler:
         """
         connect_server
 
-        Binds server running on 'host' at 'port', listenning to 2 maximum clients
+        Binds server running on 'host' at 'port', listening to 2 maximum clients
         simultaneously. Prints address of client connected.
 
         Returns:
-            tuple: socket connection object, address (tuple of host/ip)
+            tuple: socket connection object, address (tuple of host/port)
         """        
         self.socket_instance.bind((self.host, self.port))
         print('<<< Socket bind complete >>>')
@@ -103,7 +108,6 @@ class ServerSocketHandler:
 
         return connection, address
 
-
     def show_client_message(self, data: str, address):
         """
         show_client_message
@@ -112,9 +116,14 @@ class ServerSocketHandler:
 
         Args:
             data (str): data payload received 
-            address (_type_): client address tuple (host/ip)
+            address (_type_): client address tuple (host/port)
         """
         print(f'Message [{address[0]}:{address[1]}]: {data}')
 
+    def close_socket(self):
+        """
+        close_socket
 
-      
+        Closes server TCP socket
+        """
+        self.socket_instance.close()
