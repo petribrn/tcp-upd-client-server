@@ -3,7 +3,7 @@ class UdpServerSocketHandler:
         self.host = configs.default_server_host if not host else host
         self.port = configs.default_server_port if not port else port
 
-        # DGRAM constant for TCP connections
+        # DGRAM constant for UDP transmission
         self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         print('<<< Socket created >>>')
