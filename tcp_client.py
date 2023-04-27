@@ -11,9 +11,9 @@ import general.tools as tools
 
 
 def start_tcp_client():
-    print('<--------------CLIENT-------------->')
-    print('<-----DEFINE HOST ADDRESS/PORT----->')
-    server_info = input(f'Host/IP Port [Default: {configs.default_client_host} {configs.default_client_port}]: ')
+    print("<--------------CLIENT-------------->")
+    print("<-----DEFINE HOST ADDRESS/PORT----->")
+    server_info = input(f"Host/IP Port [Default: {configs.default_client_host} {configs.default_client_port}]: ")
     
     host, port = tools.define_host_port(server_info)
 
@@ -21,8 +21,8 @@ def start_tcp_client():
     client_handler.connect()
 
     while True:
-        msg = input('Message to send...: ')
-        if msg.strip().lower() == 'exit':
+        msg = input("Message to send...: ")
+        if msg.strip().lower() == "exit":
             break
 
         server_response = client_handler.send_message(msg)
@@ -31,5 +31,5 @@ def start_tcp_client():
     client_handler.close_socket()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start_tcp_client()

@@ -42,7 +42,7 @@ class TcpClientSocketHandler:
         Args:
             response (str): server's response
         """        
-        print(f'Server reply......: {response}')
+        print(f"Server reply......: {response}")
 
     def close_socket(self):
         """
@@ -61,7 +61,7 @@ class TcpServerSocketHandler:
         # STREAM constant for TCP connections
         self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        print('<<< Socket created >>>')
+        print("<<< Socket created >>>")
     
     def bind_server(self):
         """
@@ -74,7 +74,7 @@ class TcpServerSocketHandler:
             tuple: socket connection object, address (tuple of host/port)
         """        
         self.socket_instance.bind((self.host, self.port))
-        print('<<< Socket bind complete >>>')
+        print("<<< Socket bind complete >>>")
         self.socket_instance.listen(2)
         
         connection, address = self.socket_instance.accept()
@@ -92,7 +92,7 @@ class TcpServerSocketHandler:
             data (str): data payload received 
             address (_type_): client address tuple (host/port)
         """
-        print(f'Message [{address[0]}:{address[1]}]: {data}')
+        print(f"Message [{address[0]}:{address[1]}]: {data}")
 
     def close_socket(self):
         """

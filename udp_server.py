@@ -4,8 +4,8 @@ import general.tools as tools
 
 
 def server_method():
-    print('<-----DEFINE HOST ADDRESS/PORT----->')
-    server_info = input(f'Host/IP Port [Default: {configs.default_server_host} {configs.default_server_port}]: ')
+    print("<-----DEFINE HOST ADDRESS/PORT----->")
+    server_info = input(f"Host/IP Port [Default: {configs.default_server_host} {configs.default_server_port}]: ")
 
     host, port = tools.define_host_port(server_info)
 
@@ -15,14 +15,14 @@ def server_method():
     message_counter = 0
     while True:
         data, address = server_handler.show_client_message()
-        if data == b'exit':
+        if data == b"exit":
             break
 
-        server_handler.send_message(f'[{message_counter}] OK ::: {data.decode()}', address)
+        server_handler.send_message(f"[{message_counter}] OK ::: {data.decode()}", address)
         message_counter += 1
 
     server_handler.close_socket()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     server_method()

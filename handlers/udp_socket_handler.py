@@ -61,7 +61,7 @@ class UdpServerSocketHandler:
         # DGRAM constant for UDP transmission
         self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        print('<<< Socket created >>>')
+        print("<<< Socket created >>>")
 
     def connect_server(self):
         """
@@ -71,7 +71,7 @@ class UdpServerSocketHandler:
         simultaneously. Prints address of client.
         """
         self.socket_instance.bind((self.host, self.port))
-        print('<<< Socket bind complete >>>')
+        print("<<< Socket bind complete >>>")
 
     def show_client_message(self):
         """
@@ -83,8 +83,8 @@ class UdpServerSocketHandler:
             tuple: socket object, address (tuple of host/port)
         """
         data, address = self.socket_instance.recvfrom(1024)
-        if data != b'exit':
-            print(f'Message [{address[0]}:{address[1]}]: {data.decode()}')
+        if data != b"exit":
+            print(f"Message [{address[0]}:{address[1]}]: {data.decode()}")
 
         return data, address
 
