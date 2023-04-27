@@ -1,5 +1,6 @@
-from tcp_socket_handler import TcpClientSocketHandler
-import configs
+from handlers.tcp_socket_handler import TcpClientSocketHandler
+import general.configs as configs
+import general.tools as tools
 
 """
         client_method
@@ -9,17 +10,12 @@ import configs
 """
 
 
-def client_method():
+def start_tcp_client():
+    print('<--------------CLIENT-------------->')
     print('<-----DEFINE HOST ADDRESS/PORT----->')
-    host_port = input(f'Host/IP Port [Default: {configs.default_client_host} {configs.default_client_port}]: ')
-    if not host_port == '':
-        host = host_port.split(' ')[0]
-        port = host_port.split(' ')[1]
-    else:
-        host = configs.default_client_host
-        port = configs.default_client_port
-
-    print(host)
+    server_info = input(f'Host/IP Port [Default: {configs.default_client_host} {configs.default_client_port}]: ')
+    
+    host, port = tools.define_host_port(server_info)
 
     client_handler = TcpClientSocketHandler(host, port)
     client_handler.connect()
@@ -36,4 +32,4 @@ def client_method():
 
 
 if __name__ == '__main__':
-    client_method()
+    start_tcp_client()

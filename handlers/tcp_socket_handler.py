@@ -1,6 +1,4 @@
 import socket
-import configs
-
 
 class TcpClientSocketHandler:
     def __init__(self, host, port) -> None:
@@ -10,18 +8,6 @@ class TcpClientSocketHandler:
         # STREAM constant for TCP connections
         self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    @property
-    def socket_instance(self):
-        return self.socket_instance
-
-    @property
-    def host(self):
-        return self.host
-
-    @property
-    def port(self):
-        return self.port
-    
     def connect(self):
         """
         connect 
@@ -69,27 +55,15 @@ class TcpClientSocketHandler:
 
 class TcpServerSocketHandler:
     def __init__(self, host: str, port: int) -> None:
-        self.host = configs.default_server_host if not host else host
-        self.port = configs.default_server_port if not port else port
+        self.host = host
+        self.port = port
 
         # STREAM constant for TCP connections
         self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         print('<<< Socket created >>>')
-
-    @property
-    def instance(self):
-        return self.socket_instance
-
-    @property
-    def host(self):
-        return self.host
-
-    @property
-    def port(self):
-        return self.port
     
-    def connect_server(self):
+    def bind_server(self):
         """
         connect_server
 
