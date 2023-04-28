@@ -26,6 +26,9 @@ def start_tcp_server():
             data = connection.recv(1024).decode()
 
             server_handler.show_client_message(data, address)
+            if data == "exit":
+                connection.send("EXIT OK".encode())
+                break
             connection.send("[{}] OK ::: {}".format(message_counter, data).encode())
             message_counter += 1
         except Exception:
