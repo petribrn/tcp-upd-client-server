@@ -1,4 +1,3 @@
-# -*- coding: future_fstrings -*-
 from handlers.udp_socket_handler import UdpServerSocketHandler
 import general.configs as configs
 import general.tools as tools
@@ -19,7 +18,7 @@ def server_method():
         if data == b"exit":
             break
 
-        server_handler.send_message(f"[{message_counter}] OK ::: {data.decode()}", address)
+        server_handler.send_message("[{}] OK ::: {}".format(message_counter, data.decode()), address)
         message_counter += 1
 
     server_handler.close_socket()

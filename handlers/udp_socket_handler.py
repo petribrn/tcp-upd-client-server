@@ -1,4 +1,3 @@
-# -*- coding: future_fstrings -*-
 import general.configs as configs
 import socket
 
@@ -44,7 +43,7 @@ class UdpClientSocketHandler:
         Args:
             response (str): server's response
         """        
-        print(f'Server reply......: {response.decode()}')
+        print('Server reply......: {}'.format(response.decode()))
 
     def close_socket(self):
         """
@@ -85,7 +84,7 @@ class UdpServerSocketHandler:
         """
         data, address = self.socket_instance.recvfrom(1024)
         if data != b"exit":
-            print(f"Message [{address[0]}:{address[1]}]: {data.decode()}")
+            print("Message [{}:{}]: {}".format(address[0], address[1], data.decode()))
 
         return data, address
 

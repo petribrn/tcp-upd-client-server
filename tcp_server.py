@@ -1,4 +1,3 @@
-# -*- coding: future_fstrings -*-
 from handlers.tcp_socket_handler import TcpServerSocketHandler
 import general.configs as configs
 import general.tools as tools
@@ -27,7 +26,7 @@ def start_tcp_server():
         data = connection.recv(1024).decode()
 
         server_handler.show_client_message(data, address)
-        connection.send(f"[{message_counter}] OK ::: {data}".encode())
+        connection.send("[{}] OK ::: {}".format(message_counter, data).encode())
         message_counter += 1
 
 

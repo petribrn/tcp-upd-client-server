@@ -1,4 +1,3 @@
-# -*- coding: future_fstrings -*-
 import socket
 
 class TcpClientSocketHandler:
@@ -43,7 +42,7 @@ class TcpClientSocketHandler:
         Args:
             response (str): server's response
         """        
-        print(f"Server reply......: {response}")
+        print("Server reply......: {}".format(response))
 
     def close_socket(self):
         """
@@ -79,7 +78,7 @@ class TcpServerSocketHandler:
         self.socket_instance.listen(2)
         
         connection, address = self.socket_instance.accept()
-        print(f'Connected to......: {address[0]}:{address[1]}')
+        print('Connected to......: {}:{}'.format(address[0], address[1]))
 
         return connection, address
 
@@ -93,7 +92,7 @@ class TcpServerSocketHandler:
             data (str): data payload received 
             address (_type_): client address tuple (host/port)
         """
-        print(f"Message [{address[0]}:{address[1]}]: {data}")
+        print("Message [{}:{}]: {}".format(address[0], address[1], data))
 
     def close_socket(self):
         """
