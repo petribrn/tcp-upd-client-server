@@ -6,7 +6,7 @@ class TcpClientSocketHandler:
         self.port = port
 
         # STREAM constant for TCP connections
-        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket_instance = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connect(self):
         """
@@ -59,7 +59,7 @@ class TcpServerSocketHandler:
         self.port = port
 
         # STREAM constant for TCP connections
-        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket_instance = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         print("<<< Socket created >>>")
     

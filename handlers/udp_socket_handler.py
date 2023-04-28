@@ -7,7 +7,7 @@ class UdpClientSocketHandler:
         self.port = port
 
         # STREAM constant for TCP connections
-        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.socket_instance = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     def connect(self):
         """
@@ -59,7 +59,7 @@ class UdpServerSocketHandler:
         self.port = port
 
         # DGRAM constant for UDP transmission
-        self.socket_instance: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.socket_instance = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         print("<<< Socket created >>>")
 
