@@ -1,3 +1,4 @@
+# -*- coding: future_fstrings -*-
 import general.configs as configs
 import socket
 

@@ -1,3 +1,4 @@
+# -*- coding: future_fstrings -*-
 from handlers.udp_socket_handler import UdpClientSocketHandler
 import general.configs as configs
 import general.tools as tools

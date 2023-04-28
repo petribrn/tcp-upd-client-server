@@ -1,3 +1,4 @@
+# -*- coding: future_fstrings -*-
 from handlers.tcp_socket_handler import TcpServerSocketHandler
 import general.configs as configs
 import general.tools as tools
