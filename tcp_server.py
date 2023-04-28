@@ -31,6 +31,7 @@ def start_tcp_server():
         except Exception:
             break
     connection.close()
+    server_handler.close_socket()
 
 
 if __name__ == "__main__":
