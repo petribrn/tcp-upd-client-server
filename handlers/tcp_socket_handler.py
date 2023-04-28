@@ -75,7 +75,7 @@ class TcpServerSocketHandler:
         """        
         self.socket_instance.bind((self.host, self.port))
         print("<<< Socket bind complete >>>")
-        self.socket_instance.listen(2)
+        self.socket_instance.listen(1)
         
         connection, address = self.socket_instance.accept()
         print('Connected to......: {}:{}'.format(address[0], address[1]))
