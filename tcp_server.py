@@ -22,11 +22,15 @@ def start_tcp_server():
 
     message_counter = 0
     while True:
-        data = connection.recv(1024).decode()
+        try:
+            data = connection.recv(1024).decode()
 
-        server_handler.show_client_message(data, address)
-        connection.send("[{}] OK ::: {}".format(message_counter, data).encode())
-        message_counter += 1
+            server_handler.show_client_message(data, address)
+            connection.send("[{}] OK ::: {}".format(message_counter, data).encode())
+            message_counter += 1
+        except Exception:
+            break
+    connection.close()
 
 
 if __name__ == "__main__":
