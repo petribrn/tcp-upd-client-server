@@ -22,11 +22,10 @@ def start_tcp_client():
 
     while True:
         msg = input("Message to send...: ")
-        
+        if msg.strip().lower() == "exit":
+            break
 
         server_response = client_handler.send_message(msg)
-        if 'EXIT OK' in server_response:
-            break
         client_handler.show_server_response(server_response)
 
     client_handler.close_socket()
