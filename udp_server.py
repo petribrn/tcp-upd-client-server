@@ -5,7 +5,7 @@ import general.tools as tools
 
 def server_method():
     print("<-----DEFINE HOST ADDRESS/PORT----->")
-    server_info = input(f"Host/IP Port [Default: {configs.default_server_host} {configs.default_server_port}]: ")
+    server_info = input("Host/IP Port [Default: {} {}]: ".format(configs.default_client_host, configs.default_client_port))
 
     host, port = tools.define_host_port(server_info)
 
