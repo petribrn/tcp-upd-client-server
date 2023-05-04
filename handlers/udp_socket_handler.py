@@ -67,8 +67,7 @@ class UdpServerSocketHandler:
         """
         connect_server
 
-        Binds server running on 'host' at 'port', listening to 2 maximum clients
-        simultaneously. Prints address of client.
+        Binds server running on 'host' at 'port'.
         """
         self.socket_instance.bind((self.host, self.port))
         print("<<< Socket bind complete >>>")
